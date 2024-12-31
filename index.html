@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,91 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suhuf Islamic Literature Festival</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade&family=Amiri&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
+    <!-- Header -->
+    <header class="islamic-header sticky">
         <div class="container">
-            <h1>Suhuf Islamic Literature Festival</h1>
+            <h1><span class="islamic-style">Suhuf</span> Islamic Literature Festival</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#program">Program</a></li>
-                    <li><a href="#activities">Activities</a></li>
+                    <li>
+                        <a href="#dashboard">Dashboard</a>
+                        <ul class="dropdown">
+                            <li><a href="#poetry">Poetry Slam</a></li>
+                            <li><a href="#calligraphy">Calligraphy Workshop</a></li>
+                            <li><a href="#nasheed">Nasheed Competition</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#register">Register</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="hero">
-            <h2>Celebrating the Essence of Islamic Literature</h2>
-            <p>Join us from [Dates] to experience enriching events and discussions.</p>
-            <a href="#register" class="btn">Register Now</a>
+    <!-- Main Section -->
+    <section id="dashboard" class="islamic-pattern">
+        <div class="dashboard">
+            <div class="card" data-aos="fade-up">
+                <h3><i class="fas fa-clock"></i> Event Countdown</h3>
+                <div id="timer">
+                    <div><span id="days">0</span> Days</div>
+                    <div><span id="hours">0</span> Hours</div>
+                    <div><span id="minutes">0</span> Minutes</div>
+                    <div><span id="seconds">0</span> Seconds</div>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3><i class="fas fa-calendar"></i> Upcoming Events</h3>
+                <ul>
+                    <li>Poetry Slam - Day 1</li>
+                    <li>Calligraphy Workshop - Day 2</li>
+                    <li>Nasheed Competition - Day 3</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About the Festival</h2>
-            <p>The Suhuf Islamic Literature Festival celebrates the rich heritage of Islamic literature, featuring authors, scholars, poets, and artists from around the world.</p>
+    <!-- Carousel for Live Updates -->
+    <section id="highlights" class="carousel-section">
+        <div class="carousel">
+            <div class="carousel-item active">Day 1: Opening Ceremony & Keynote Address</div>
+            <div class="carousel-item">Day 2: Interactive Workshops and Competitions</div>
+            <div class="carousel-item">Day 3: Cultural Integration Programs</div>
         </div>
     </section>
 
-    <!-- Program Section -->
-    <section id="program">
-        <div class="container">
-            <h2>Festival Program</h2>
-            <ul>
-                <li><strong>Day 1:</strong> Opening Ceremony, Keynote Address, Arabic Poetry Recital</li>
-                <li><strong>Day 2:</strong> Islamic Poetry Slam, Storytelling Circle, Qur’anic Calligraphy Workshop</li>
-                <li><strong>Day 3:</strong> Creative Writing Workshop, Translation Challenge, Book Fair</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <section id="activities">
-        <div class="container">
-            <h2>Festival Activities</h2>
-            <ul>
-                <li>Nasheed and Qasida Competition</li>
-                <li>Islamic Art Showcase</li>
-                <li>Book Launches and Meet-the-Author Sessions</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="#" method="POST">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Suhuf Islamic Literature Festival. All Rights Reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="islamic-footer">
+        <p>&copy; 2024 Suhuf Islamic Literature Festival | Designed with Faith</p>
     </footer>
 
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
