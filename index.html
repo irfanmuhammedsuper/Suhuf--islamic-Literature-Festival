@@ -1,79 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suhuf Islamic Literature Festival</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade&family=Amiri&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suhuf Islamic Literature Festival</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f5f5f5 url('images/islamic-pattern.jpg') no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Header */
+    .islamic-header {
+      background: #074d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Scheherazade', serif;
+    }
+
+    .islamic-header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .islamic-header nav ul li {
+      display: inline;
+    }
+
+    .islamic-header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .islamic-header nav ul li a:hover {
+      color: #f4d03f;
+    }
+
+    /* Section Styling */
+    .section {
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      max-width: 800px;
+    }
+
+    .section h2 {
+      font-family: 'Scheherazade', serif;
+      font-size: 28px;
+      color: #074d32;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* Button Styling */
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      color: #fff;
+      background-color: #074d32;
+      text-decoration: none;
+      border-radius: 50px;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f4d03f;
+      color: #000;
+      transform: translateY(-5px); /* Moving effect */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:active {
+      transform: translateY(2px); /* Slightly down when clicked */
+    }
+
+    /* Footer */
+    .islamic-footer {
+      background: #074d32;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-family: 'Scheherazade', serif;
+    }
+
+    /* Optional - Fade effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Loading animation */
+    body {
+      opacity: 0;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="islamic-header sticky">
-        <div class="container">
-            <h1><span class="islamic-style">Suhuf</span> Islamic Literature Festival</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li>
-                        <a href="#dashboard">Dashboard</a>
-                        <ul class="dropdown">
-                            <li><a href="#poetry">Poetry Slam</a></li>
-                            <li><a href="#calligraphy">Calligraphy Workshop</a></li>
-                            <li><a href="#nasheed">Nasheed Competition</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#register">Register</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Main Section -->
-    <section id="dashboard" class="islamic-pattern">
-        <div class="dashboard">
-            <div class="card" data-aos="fade-up">
-                <h3><i class="fas fa-clock"></i> Event Countdown</h3>
-                <div id="timer">
-                    <div><span id="days">0</span> Days</div>
-                    <div><span id="hours">0</span> Hours</div>
-                    <div><span id="minutes">0</span> Minutes</div>
-                    <div><span id="seconds">0</span> Seconds</div>
-                </div>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h3><i class="fas fa-calendar"></i> Upcoming Events</h3>
-                <ul>
-                    <li>Poetry Slam - Day 1</li>
-                    <li>Calligraphy Workshop - Day 2</li>
-                    <li>Nasheed Competition - Day 3</li>
-                </ul>
-            </div>
-        </div>
+<body class="loaded">
+
+  <header class="islamic-header">
+    <h1>Suhuf Islamic Literature Festival</h1>
+    <nav>
+      <ul>
+        <li><a href="#events-container" class="btn">Upcoming Events</a></li>
+        <li><a href="#registration-container" class="btn">Register Now</a></li>
+        <li><a href="#speakers-container" class="btn">Meet Our Speakers</a></li>
+        <li><a href="#videos-container" class="btn">Watch Videos</a></li>
+        <li><a href="#news-container" class="btn">Latest News</a></li>
+        <li><a href="#gallery-container" class="btn">Photo Gallery</a></li>
+        <li><a href="#map-container" class="btn">Find Us Here</a></li>
+        <li><a href="#comments-container" class="btn">Leave a Comment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sections -->
+    <section id="events-container" class="section">
+      <h2>Upcoming Events</h2>
+      <div class="content" id="events-content"></div>
     </section>
 
-    <!-- Carousel for Live Updates -->
-    <section id="highlights" class="carousel-section">
-        <div class="carousel">
-            <div class="carousel-item active">Day 1: Opening Ceremony & Keynote Address</div>
-            <div class="carousel-item">Day 2: Interactive Workshops and Competitions</div>
-            <div class="carousel-item">Day 3: Cultural Integration Programs</div>
-        </div>
+    <section id="registration-container" class="section">
+      <h2>Register Now</h2>
+      <div class="content" id="registration-content"></div>
     </section>
 
-    <!-- Footer -->
-    <footer class="islamic-footer">
-        <p>&copy; 2024 Suhuf Islamic Literature Festival | Designed with Faith</p>
-    </footer>
+    <section id="speakers-container" class="section">
+      <h2>Our Esteemed Speakers</h2>
+      <div class="content" id="speakers-content"></div>
+    </section>
 
-    <script src="script.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <section id="videos-container" class="section">
+      <h2>Watch Videos</h2>
+      <div class="content" id="videos-content"></div>
+    </section>
+
+    <section id="news-container" class="section">
+      <h2>Latest News</h2>
+      <div class="content" id="news-content"></div>
+    </section>
+
+    <section id="gallery-container" class="section">
+      <h2>Photo Gallery</h2>
+      <div class="content" id="gallery-content"></div>
+    </section>
+
+    <section id="map-container" class="section">
+      <h2>Find Us Here</h2>
+      <div class="content" id="map-content"></div>
+    </section>
+
+    <section id="comments-container" class="section">
+      <h2>Leave a Comment</h2>
+      <div class="content" id="comments-content"></div>
+    </section>
+  </main>
+
+  <footer class="islamic-footer">
+    <p>&copy; 2024 Suhuf Islamic Literature Festival. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const spreadsheetURL = "https://docs.google.com/spreadsheets/d/e/YourSpreadsheetID/pubhtml"; // Your spreadsheet URL
+
+      Tabletop.init({
+        key: spreadsheetURL,
+        simpleSheet: false,
+        callback: function (data) {
+          try {
+            // Populate Events
+            populateContent(data['Events'].elements, "#events-content", `
+              <h3>{Title}</h3>
+              <p>{Description}</p>
+              <p><strong>Date:</strong> {Date}</p>
+              <p><strong>Time:</strong> {Time}</p>
+              <p><strong>Location:</strong> {Location}</p>
+            `);
+
+            // Populate Registration
+            populateContent(data['Registration'].elements, "#registration-content", `
+              <a href="{Link}" class="btn">Register Here</a>
+            `);
+
+            // Populate Speakers
+            populateContent(data['Speakers'].elements, "#speakers-content", `
+              <h3>{Name}</h3>
+              <p>{Bio}</p>
+            `);
+
+            // Populate Videos
+            populateContent(data['Videos'].elements, "#videos-content", `
+              <iframe width="300" height="200" src="{VideoLink}" frameborder="0" allowfullscreen></iframe>
+            `);
+
+            // Populate News
+            populateContent(data['News'].elements, "#news-content", `
+              <h3>{Headline}</h3>
+              <p>{Content}</p>
+            `);
+
+            // Populate Gallery
+            populateContent(data['Gallery'].elements, "#gallery-content", `
+              <img src="{ImageURL}" alt="{Caption}" style="width:100%; height:auto; border-radius:5px;">
+              <p>{Caption}</p>
+            `);
+
+            // Populate Map
+            populateContent(data['Map'].elements, "#map-content", `
+              <iframe src="{MapLink}" width="100%" height="300" style="border:0;"></iframe>
+            `);
+
+            // Populate Comments
+            populateContent(data['Comments'].elements, "#comments-content", `
+              <p><strong>{Name}:</strong> {Comment}</p>
+            `);
+
+          } catch (error) {
+            console.error("Error fetching or displaying data:", error);
+          }
+        }
+      });
+
+      function populateContent(items, selector, template) {
+        const container = document.querySelector(selector);
+        if (container) {
+          container.innerHTML = items.map(item => template.replace(/{(.*?)}/g, (_, key) => item[key] || "")).join("");
+        }
+      }
+    });
+  </script>
 </body>
+
 </html>
